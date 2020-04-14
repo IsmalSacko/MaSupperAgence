@@ -1,0 +1,15 @@
+{% extends "baseblog.html.twig" %}
+{% block body %}
+{% include "common/entete.html.twig" %}
+<h1 class="col-6  mx-auto ">{% block title %}Contacterz-moi{% endblock %}</h1>
+     {{ include('contact/form.html.twig') }}  
+
+    {# <a href="{{ path('user_index') }}">Envoyer</a> #}
+{% endblock %}
+
+{% block footer %}
+	<div class="bg-warning text-white text-center center" style="height: 10vh">
+        {% set fcbk = 'https://www.facebook.com/photo.php?fbid=2771453106273856&set=a.327391027346755&type=3&theater' %}
+       	Copyright {{ "now"|date('d/m/Y', timezone="Europe/Paris") }} &copy; by  <a class="text-white" href="{{fcbk}}">Ismael SACKO</a>
+    </div>		
+{% endblock %}

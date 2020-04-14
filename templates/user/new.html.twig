@@ -1,0 +1,14 @@
+{% extends "baseblog.html.twig" %}
+
+{% block title %}New User{% endblock %}
+{% block body %}
+<div class="bg-success text-white">
+    {% include "common/entete.html.twig" %}
+</div>
+    <div class="container">
+    <h1 class="text-center center text-success">Create new User</h1>
+
+    {{ include('user/_form.html.twig') }}
+ <a href="{{ path('user_index') }}">back to list</a>
+ </div>   
+{% endblock %}
