@@ -25,4 +25,11 @@ class HomeController extends AbstractController
           'titre'  => $titre
         ]);
     }
+
+    /**
+     * @Route("/upload", name="upload")
+     */
+    public function image(){
+        return $this->render('upload.html.twig');
+    }
 }

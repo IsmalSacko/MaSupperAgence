@@ -19,20 +19,21 @@
                     <a class="nav-link " href="{{ path('homepage') }}">Mon Blog<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Annonces !!</a>
+                    <a class="nav-link" href="{{ path('ad_index')}}">Annonces !!</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">News</a>
-                </li>
+               {% if app.user %} 
+               <li class="nav-item">
+                    <a class="nav-link" href="{{ path('ad_new')}}">Créer une annonce</a>
+                </li>{% endif %}
                 {# <li class="nav-item">
                     <a class="nav-link" href="{{path('chat')}}">Tchat</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{path('jeu')}}">Jeux</a>
                 </li> #}
-                <li class="nav-item">
+                {# <li class="nav-item">
                     <a class="nav-link" href="{{path('contact')}}">Nous Contacter</a>
-                </li>
+                </li> #}
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

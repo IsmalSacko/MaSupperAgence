@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces{% endblock %}
+
+{% block body %}        
+   <div class="container">
+         <div class="row">
+    {% for ad in ads %}
+        <div class="col-md-4">
+    <h5 class="mt-2 text-center text-info">{{ ad.title }}</h5>
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center">
+                    {{ad.room}} Chambre(s) à 
+                    <strong>{{ ad.price }}&euro; /mois</strong>
+                    <br>
+                    <small>publié le {{ "now"|date("m/d/Y") }}</small>
+                    <img style="height: 150px; width: 100%; display: block;" src="{{tmp}}{{ ad.filename }}" alt=""></img>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ad.content}}
+                        </p>
+                       
+                        <a class="btn btn-success" href="{{ path('ad_show', {'id': ad.id}) }}">show</a>
+                        {# {% if app.user %} #}
+                        <a class="btn btn-primary" href="{{ path('ad_edit', {'id': ad.id}) }}">edit</a>
+                        {# {% endif %} #}
+                    </div>
+                </div>
+            </div> 
+        </div>        
+    {% endfor %}
+    </div>
+        <a class="btn btn-success " href="{{ path('ad_new') }}">Create new</a>
+   </div>    
+{% endblock %}
