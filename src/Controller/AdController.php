@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Ad;
+use App\Entity\Aad;
 use App\Form\AdType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/ad")
@@ -19,31 +19,33 @@ class AdController extends AbstractController
      */
     public function index(): Response
     {
-        $ads = $this->getDoctrine()
-            ->getRepository(Ad::class)
+        $ad = $this->getDoctrine()
+            ->getRepository(Aad::class)
             ->findAll();
-        $tmpfile = "/images/ad/";
+         $tmpfile = "/images/ad/";
 
         return $this->render('ad/index.html.twig', [
-            'ads' => $ads,
-            'tmp' => $tmpfile
+            'ad' => $ad,
+             'tmp' => $tmpfile
         ]);
     }
+
 
     /**
      * @Route("/new", name="ad_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
-        $ad = new Ad();
+        $ad = new Aad();
         $form = $this->createForm(AdType::class, $ad);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            
             $entityManager->persist($ad);
             $entityManager->flush();
-
+            $this->addFlash("success", "Votre annonce <strong>{$ad->getTitle()}</strong> à bien été enregistrée");
             return $this->redirectToRoute('ad_index');
         }
 
@@ -56,7 +58,7 @@ class AdController extends AbstractController
     /**
      * @Route("/{id}", name="ad_show", methods={"GET"})
      */
-    public function show(Ad $ad): Response
+    public function show(Aad $ad): Response
     {
         return $this->render('ad/show.html.twig', [
             'ad' => $ad,
@@ -66,12 +68,13 @@ class AdController extends AbstractController
     /**
      * @Route("/{id}/edit", name="ad_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Ad $ad): Response
+    public function edit(Request $request, Aad $ad): Response
     {
         $form = $this->createForm(AdType::class, $ad);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ad_index');
@@ -86,7 +89,7 @@ class AdController extends AbstractController
     /**
      * @Route("/{id}", name="ad_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Ad $ad): Response
+    public function delete(Request $request, Aad $ad): Response
     {
         if ($this->isCsrfTokenValid('delete' . $ad->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

@@ -5,7 +5,7 @@
 {% block body %}        
    <div class="container">
          <div class="row">
-    {% for ad in ads %}
+    {% for ad in ad %}
         <div class="col-md-4">
     <h5 class="mt-2 text-center text-info">{{ ad.title }}</h5>
             <div class="card bg-light mb-3">
@@ -13,8 +13,13 @@
                     {{ad.room}} Chambre(s) à 
                     <strong>{{ ad.price }}&euro; /mois</strong>
                     <br>
-                    <small>publié le {{ "now"|date("m/d/Y") }}</small>
-                    <img style="height: 150px; width: 100%; display: block;" src="{{tmp}}{{ ad.filename }}" alt=""></img>
+                    <small>publié le {{ ad.UpdatedAt |date("m/d/Y") }} par {{ ad.utilisateur }}</small>
+                    {# Pour afficher une image téléchargée par vich, on peut soit le faire en indicant le chemin de l'image manuellement, 
+                    soit par vich_uploader_asset(notre entité, la proprièté de l'image dans cette entité) 
+                    
+                     #}
+
+                    <img style="height: 150px; width: 100%; display: block;" src="{{ vich_uploader_asset(ad, 'imageFile') | imagine_filter('my_thumb') }}" alt="{{ ad.imageFile}}"></img>
                     <div class="card-body">
                         <p class="card-text">
                             {{ad.content}}
@@ -27,8 +32,11 @@
                     </div>
                 </div>
             </div> 
-        </div>        
+        </div> 
+        {% else %}
+            <div class="danger">Aucune annonce pour le moment !! </div>       
     {% endfor %}
+    
     </div>
         <a class="btn btn-success " href="{{ path('ad_new') }}">Create new</a>
    </div>    
