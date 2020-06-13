@@ -2,7 +2,7 @@
 
 {% block title %}Annonces{% endblock %}
 
-{% block body %}        
+{% block body %}
    <div class="container">
          <div class="row">
     {% for ad in ad %}
@@ -39,5 +39,5 @@
     
     </div>
         <a class="btn btn-success " href="{{ path('ad_new') }}">Create new</a>
-   </div>    
+   </div>
 {% endblock %}
