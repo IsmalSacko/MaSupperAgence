@@ -143,15 +143,6 @@
     "php": {
         "version": "7.4"
     },
-    "phpdocumentor/reflection-common": {
-        "version": "2.0.0"
-    },
-    "phpdocumentor/reflection-docblock": {
-        "version": "5.1.0"
-    },
-    "phpdocumentor/type-resolver": {
-        "version": "1.1.0"
-    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -178,18 +169,6 @@
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.3"
-    },
-    "symfony/apache-pack": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "71599f5b0fdeeeec0fb90e9b17c85e6f5e1350c1"
-        },
-        "files": [
-            "public/.htaccess"
-        ]
     },
     "symfony/asset": {
         "version": "v4.4.7"
@@ -421,9 +400,6 @@
     "symfony/property-access": {
         "version": "v4.4.7"
     },
-    "symfony/property-info": {
-        "version": "v4.4.7"
-    },
     "symfony/routing": {
         "version": "4.2",
         "recipe": {
@@ -461,12 +437,6 @@
     },
     "symfony/security-http": {
         "version": "v4.4.7"
-    },
-    "symfony/serializer": {
-        "version": "v4.4.7"
-    },
-    "symfony/serializer-pack": {
-        "version": "v1.0.3"
     },
     "symfony/service-contracts": {
         "version": "v2.0.1"
@@ -530,9 +500,6 @@
             "./templates/base.html.twig"
         ]
     },
-    "symfony/twig-pack": {
-        "version": "v1.0.0"
-    },
     "symfony/validator": {
         "version": "4.3",
         "recipe": {
@@ -584,9 +551,6 @@
     "true/punycode": {
         "version": "v2.1.1"
     },
-    "twig/extra-bundle": {
-        "version": "v3.0.3"
-    },
     "twig/intl-extra": {
         "version": "v3.0.3"
     },
@@ -607,9 +571,6 @@
     },
     "webimpress/safe-writer": {
         "version": "2.0.1"
-    },
-    "webmozart/assert": {
-        "version": "1.7.0"
     },
     "zendframework/zend-code": {
         "version": "3.4.1"
