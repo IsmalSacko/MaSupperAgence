@@ -24,7 +24,6 @@ class AdController extends AbstractController
             ->findAll();
          $tmpfile = "/images/ad/";
 
-
         return $this->render('ad/index.html.twig', [
             'ad' => $ad,
              'tmp' => $tmpfile
