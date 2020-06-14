@@ -47,7 +47,7 @@ class Utilisateur implements UserInterface {
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Aad", inversedBy="utilisateur", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $imageAd;
 

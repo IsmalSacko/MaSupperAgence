@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200417103617 extends AbstractMigration
+final class Version20200613204446 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,9 +22,7 @@ final class Version20200417103617 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE aad DROP FOREIGN KEY FK_806D87A2F675F31B');
-        $this->addSql('DROP INDEX IDX_806D87A2F675F31B ON aad');
-        $this->addSql('ALTER TABLE aad DROP author_id');
+        $this->addSql('ALTER TABLE utilisateur CHANGE image_ad_id image_ad_id INT DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -32,8 +30,6 @@ final class Version20200417103617 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE aad ADD author_id INT NOT NULL');
-        $this->addSql('ALTER TABLE aad ADD CONSTRAINT FK_806D87A2F675F31B FOREIGN KEY (author_id) REFERENCES utilisateur (id)');
-        $this->addSql('CREATE INDEX IDX_806D87A2F675F31B ON aad (author_id)');
+        $this->addSql('ALTER TABLE utilisateur CHANGE image_ad_id image_ad_id INT NOT NULL');
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Cache;
+namespace App\cache;
 
 use App\Entity\Aad;
 use Doctrine\Common\EventSubscriber;
@@ -55,5 +55,4 @@ class EffacerCacheimg implements EventSubscriber{
     }
 
 }
-    
 

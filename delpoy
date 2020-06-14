@@ -2,4 +2,4 @@
 # npm run build
 npm run build
 rsync -av ./ u97170284@217.160.196.7:~/SYMFONY --include=public/build --include=public/.htaccess --include=vendor/* --exclude-from=.gitignore --exclude=".*" --exclude .env
-ssh u97170284@217.160.196.7 'cd ~/SYMFONY && php7.3-cli bin/console cache:clear'
+ssh u97170284@217.160.196.7 'cd ~/SYMFONY && php7.4-cli bin/console cache:clear'
