@@ -1,9 +1,13 @@
-/* body{
+@media (min-width: 576px) {
 
-    font-size: 1.5em;
-    font-family: 'Satisfy', curve;
-}
-#agence{
-    font-size: 1.5em;
-    font-family: 'Satisfy';
-} */
+    body{
+
+        font-size: 3em;
+        font-family: 'Satisfy', curve;
+    }
+    #agence{
+        font-size: 3em;
+        font-family: 'Satisfy';
+    }
+
+  }
