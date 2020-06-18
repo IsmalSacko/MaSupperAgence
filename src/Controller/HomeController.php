@@ -21,6 +21,7 @@ class HomeController extends AbstractController
      */
     public function accueil(){
         $titre ="Bienvenue sur la page de mon Agence de location";
+
         return $this->render('home/index.html.twig', [
           'titre'  => $titre
         ]);
